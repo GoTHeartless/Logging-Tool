@@ -45,7 +45,7 @@ if %errorlevel% neq 0 (
     python -m pip install requests > nul
 )
 
-echo Checking 'discord-webhook' (5/6)
+echo Checking 'discord-webhook' (6/6)
 python -c "import discord-webhook" > nul 2>&1
 if %errorlevel% neq 0 (
     echo Installing discord-webhook...
